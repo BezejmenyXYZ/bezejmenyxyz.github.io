@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bezejmeny • Coming Soon!</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <div class="container">
+        <div class="background-animation">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="content">
+            <div class="logo-section">
+                <h1 class="title">🎮 Bezejmeny Community Hub</h1>
+                <p class="subtitle">Something Epic is Coming...</p>
+            </div>
+
+            <div class="countdown-section">
+                <div id="countdown" class="countdown">
+                    <div class="time-unit">
+                        <span id="days" class="time-number">00</span>
+                        <span class="time-label">Days</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-unit">
+                        <span id="hours" class="time-number">00</span>
+                        <span class="time-label">Hours</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-unit">
+                        <span id="minutes" class="time-number">00</span>
+                        <span class="time-label">Minutes</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-unit">
+                        <span id="seconds" class="time-number">00</span>
+                        <span class="time-label">Seconds</span>
+                    </div>
+                </div>
+
+                <div id="unlock-message" class="unlock-message">
+                    <h2>🔓 WILL BE UNLOCKED:</h2>
+                    <h3>February 24, 2026 at 19:00 CET</h3>
+                    <p style="font-weight: lighter; font-size: smaller; color: #888; margin-top: 5px;"><i>Final date may be subject to change.</i></p>
+                </div>
+            </div>
+
+            <div id="expired-section" class="expired-section hidden">
+                <div class="anytime-message">
+                    <h2>⏰ Anytime now...</h2>
+                    <div class="delay-info">
+                        <p>We might be running a little behind schedule.</p>
+                        <p>Sorry about that! Keep checking back - it won't be much longer.</p>
+                    </div>
+                    <div class="auto-refresh">
+                        <p>Auto refresh in: <span id="refresh-counter">100</span>s</p>
+                        <div class="refresh-bar">
+                            <div id="refresh-progress" class="refresh-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-preview" style="display: none !important;">
+                <h3>What's Coming?</h3>
+                <div class="features-grid">
+                    <div class="feature">
+                        <span class="feature-icon">🏰</span>
+                        <span>Epic Builds</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⚔️</span>
+                        <span>Adventures</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">👥</span>
+                        <span>Community</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🎯</span>
+                        <span>Events</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2026 Bezejmeny. All rights reserved.</p>
+            <p>Created by <a href="https://sayouri.dev/" target="_blank" rel="noopener noreferrer">Sayouri</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
