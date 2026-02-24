@@ -1,7 +1,7 @@
 class CountdownTimer {
     constructor() {
-        // Target date: February 24, 2026 at 19:00 Europe/Prague
-        this.targetDate = new Date('2026-02-24T19:00:00+01:00'); // CET is UTC+1
+        // Target date: March 8, 2026 at 22:00 CET
+        this.targetDate = new Date('2026-03-08T22:00:00+01:00'); // CET is UTC+1
         
         this.elements = {
             days: document.getElementById('days'),
