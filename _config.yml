@@ -1,0 +1,13 @@
+title: Bezejmeny
+description: Epic Minecraft server is Coming..
+
+# GitHub Pages specific settings
+plugins:
+  - jekyll-redirect-from
+
+# Ensure 404.html is served for all missing pages
+permalink: pretty
+
+# Include the 404.html in builds
+include:
+  - 404.html
