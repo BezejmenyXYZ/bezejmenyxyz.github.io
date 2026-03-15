@@ -1,8 +1,7 @@
 class CountdownTimer {
   constructor() {
-    // Base target date
-    this.baseTargetDate = new Date("2026-03-14T22:00:00+01:00");
-    this.targetDate = new Date(this.baseTargetDate);
+    // Target date: March 22, 2026 at 22:00 CET
+    this.targetDate = new Date("2026-03-22T22:00:00+01:00"); // CET is UTC+1
 
     this.elements = {
       days: document.getElementById("days"),
@@ -14,7 +13,6 @@ class CountdownTimer {
       expiredSection: document.getElementById("expired-section"),
       refreshCounter: document.getElementById("refresh-counter"),
       refreshProgress: document.getElementById("refresh-progress"),
-      unlockMessageDynamo: document.querySelector(".unlock-message-dynamo")
     };
 
     this.isExpired = false;
@@ -29,49 +27,7 @@ class CountdownTimer {
     setInterval(() => this.updateCountdown(), 1000);
   }
 
-  updateUnlockMessageDate() {
-    const d = this.targetDate;
-
-    const months = [
-      "January","February","March","April","May","June",
-      "July","August","September","October","November","December"
-    ];
-
-    const text =
-      `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()} at ` +
-      `${this.padZero(d.getHours())}:${this.padZero(d.getMinutes())} CET`;
-
-    if (this.elements.unlockMessageDynamo) {
-      this.elements.unlockMessageDynamo.textContent = text;
-    }
-  }
-
-  // move target date forward daily after 21:00
-  getDynamicTargetDate() {
-    const now = new Date();
-    const target = new Date(this.baseTargetDate);
-
-    const shiftTime = new Date();
-    shiftTime.setHours(21, 0, 0, 0);
-
-    const daysPassed = Math.floor(
-      (now - this.baseTargetDate) / (1000 * 60 * 60 * 24)
-    );
-
-    target.setDate(target.getDate() + Math.max(daysPassed, 0));
-
-    if (now >= shiftTime) {
-      target.setDate(target.getDate() + 1);
-    }
-
-    return target;
-  }
-
   updateCountdown() {
-    this.targetDate = this.getDynamicTargetDate();
-
-    this.updateUnlockMessageDate();
-
     const now = new Date();
     const timeDiff = this.targetDate.getTime() - now.getTime();
 
@@ -92,7 +48,7 @@ class CountdownTimer {
       days: Math.floor(timeDiff / (1000 * 60 * 60 * 24)),
       hours: Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       minutes: Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)),
-      seconds: Math.floor((timeDiff % (1000 * 60)) / 1000)
+      seconds: Math.floor((timeDiff % (1000 * 60)) / 1000),
     };
   }
 
@@ -102,6 +58,7 @@ class CountdownTimer {
     this.elements.minutes.textContent = this.padZero(timeLeft.minutes);
     this.elements.seconds.textContent = this.padZero(timeLeft.seconds);
 
+    // Add pulse effect to seconds
     this.elements.seconds.style.animation = "none";
     setTimeout(() => {
       this.elements.seconds.style.animation = "pulse 0.5s ease-in-out";
@@ -133,8 +90,8 @@ class CountdownTimer {
     updateRefreshCounter();
     this.refreshInterval = setInterval(updateRefreshCounter, 1000);
 
-    this.elements.refreshProgress.style.animation =
-      `refreshProgress ${this.refreshSeconds}s linear forwards`;
+    // Start progress bar animation
+    this.elements.refreshProgress.style.animation = `refreshProgress ${this.refreshSeconds}s linear forwards`;
   }
 
   padZero(num) {
