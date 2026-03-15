@@ -330,6 +330,64 @@ body::-webkit-scrollbar {
   font-weight: 500;
 }
 
+/* Closed Alpha Tests (CAT) Section */
+.CAT {
+  background: rgba(30, 144, 255, 0.02);
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.CAT::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1e90ff, #00bfff);
+  border-radius: 15px 15px 0 0;
+}
+
+.alpha-title {
+  font-size: 1.8rem;
+  color: #1e90ff;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+}
+
+.cat-letter {
+  font-size: 1.05em;
+  font-weight: 800;
+  color: #00bfff;
+}
+
+.alpha-description {
+  line-height: 1.6;
+}
+
+.alpha-description p {
+  color: #cccccc;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+.alpha-description p:last-child {
+  margin-bottom: 0;
+  font-weight: 500;
+  color: #00bfff;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
 /* Team Section */
 .team-section {
   background: rgba(255, 255, 255, 0.01);
@@ -452,33 +510,41 @@ body::-webkit-scrollbar {
   text-decoration: underline;
 }
 
+/* Basic tablet responsiveness */
 @media (max-width: 768px) {
   .title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    line-height: 1.2;
   }
 
   .countdown {
-    gap: 10px;
+    gap: 15px;
   }
 
   .time-unit {
-    min-width: 80px;
-    padding: 15px;
+    min-width: 90px;
+    padding: 18px 12px;
   }
 
   .time-number {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .separator {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .feature {
+    padding: 18px 15px;
   }
 }
 
+/* Enhanced mobile phones */
 @media (max-width: 480px) {
   .content {
     padding: 20px 15px;
@@ -486,6 +552,8 @@ body::-webkit-scrollbar {
 
   .title {
     font-size: 2rem;
+    letter-spacing: 1px;
+    line-height: 1.1;
   }
 
   .subtitle {
@@ -668,6 +736,114 @@ body::-webkit-scrollbar {
   .dropdown:hover .dropdown-menu {
     transform: none;
   }
+
+  /* Enhanced mobile styles for better UX */
+  .container {
+    display: block; /* Change from flex to block */
+    min-height: auto;
+    padding: 20px 0 40px;
+  }
+
+  .content {
+    padding: 30px 15px;
+    max-width: 100%;
+    display: block;
+  }
+
+  .logo-section {
+    margin-bottom: 40px;
+  }
+
+  .features-preview {
+    padding: 20px 15px;
+  }
+
+  .features-preview h3 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  /* CAT section mobile optimization */
+  .CAT {
+    padding: 20px 15px;
+    margin: 30px 0;
+  }
+
+  .alpha-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .alpha-description p {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    padding: 0 5px;
+  }
+
+  .alpha-description p:last-child {
+    font-size: 0.9rem;
+    margin-top: 15px;
+  }
+
+  .team-section {
+    padding: 20px 15px;
+    margin: 30px 0;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+
+  .team-member {
+    padding: 20px 15px;
+  }
+
+  .member-avatar {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 12px;
+  }
+
+  .member-name {
+    font-size: 1.1rem;
+  }
+
+  .unlock-message {
+    padding: 20px 15px;
+    margin: 2em auto;
+  }
+
+  .unlock-message h2 {
+    font-size: 1.3rem;
+  }
+
+  .unlock-message .CountdownTimer-targetDate {
+    padding: 0 5px;
+    word-wrap: break-word;
+    line-height: 1.4;
+  }
+
+  /* Better footer for mobile */
+  .footer {
+    position: static; /* Change from relative to static */
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 40px auto 20px;
+    width: calc(100% - 30px);
+    max-width: 400px;
+    display: block;
+  }
+
+  .footer p {
+    font-size: 0.8rem;
+  }
+
+  /* Better particle animation performance on mobile */
+  .particle {
+    animation-duration: 8s;
+  }
 }
 
 @media (max-width: 480px) {
@@ -687,5 +863,215 @@ body::-webkit-scrollbar {
   .dropdown-item {
     font-size: 0.8rem;
     padding: 8px 15px;
+  }
+
+  /* Enhanced small screen optimizations */
+  .container {
+    display: block;
+    min-height: auto;
+    padding: 15px 0 30px;
+  }
+
+  .content {
+    padding: 20px 10px;
+    display: block;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .countdown {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .time-unit {
+    min-width: 70px;
+    padding: 12px 8px;
+  }
+
+  .time-number {
+    font-size: 1.6rem;
+  }
+
+  .time-label {
+    font-size: 0.7rem;
+    margin-top: 3px;
+  }
+
+  .features-preview {
+    padding: 15px 10px;
+    margin: 20px 0;
+  }
+
+  .features-preview h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    line-height: 1.3;
+  }
+
+  /* CAT section small screen optimization */
+  .CAT {
+    padding: 15px 10px;
+    margin: 20px 0;
+  }
+
+  .alpha-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+  }
+
+  .alpha-description p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    padding: 0;
+    line-height: 1.5;
+  }
+
+  .alpha-description p:last-child {
+    font-size: 0.85rem;
+    margin-top: 12px;
+    line-height: 1.4;
+  }
+
+  .feature {
+    padding: 15px 10px;
+  }
+
+  .feature-icon {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .team-section {
+    padding: 15px 10px;
+    margin: 20px 0;
+  }
+
+  .team-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 300px;
+  }
+
+  .team-member {
+    padding: 15px 10px;
+  }
+
+  .member-avatar {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+  }
+
+  .member-name {
+    font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .member-title {
+    font-size: 0.8rem;
+  }
+
+  .unlock-message {
+    padding: 15px 10px;
+    margin: 1.5em auto;
+    max-width: 320px;
+  }
+
+  .unlock-message h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .unlock-message .CountdownTimer-targetDate {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .anytime-message {
+    padding: 20px 15px;
+  }
+
+  .anytime-message h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .delay-info p {
+    font-size: 0.9rem;
+  }
+
+  .auto-refresh {
+    padding: 12px;
+  }
+
+  .auto-refresh p {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .footer {
+    position: static;
+    margin: 30px auto 15px;
+    padding: 8px 12px;
+    width: calc(100% - 20px);
+    max-width: 350px;
+    display: block;
+    left: auto;
+    transform: none;
+  }
+
+  .footer p {
+    font-size: 0.75rem;
+    margin: 2px 0;
+  }
+
+  /* Reduce particle count on very small screens for performance */
+  .particle:nth-child(n+4) {
+    display: none;
+  }
+
+  /* Better touch interactions */
+  .feature:active,
+  .team-member:active,
+  .navbar-item:active {
+    transform: scale(0.98);
+  }
+
+  /* Improve tap targets for mobile */
+  .navbar-item {
+    min-height: 44px; /* Apple's recommended touch target size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature {
+    cursor: pointer; /* Shows it's interactive */
+  }
+
+  /* Better scroll performance on mobile */
+  .container {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
   }
 }
