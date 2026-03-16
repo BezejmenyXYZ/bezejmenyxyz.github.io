@@ -255,17 +255,6 @@ document.addEventListener("visibilitychange", function () {
   }
 });
 
-// Console easter egg
-console.log(`
-🎮 MINECRAFT SERVER COUNTDOWN
-==============================
-Target: Feb 24, 2026 19:00 CET
-Something epic is coming...
-
-⚡ Pro tip: Press F12 to see this message!
-🔥 Ready to build something amazing?
-`);
-
 // Prevent right-click context menu (optional security)
 document.addEventListener("contextmenu", function (e) {
   e.preventDefault();

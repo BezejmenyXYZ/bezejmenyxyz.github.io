@@ -49,6 +49,52 @@ $RECYCLE.BIN/
 .env.test.local
 .env.production.local
 
+# ===================================
+# PHP Backend & Server-Side Files
+# ===================================
+
+# All PHP files
+*.php
+
+# PHP application directories
+admin/
+api/
+register/
+includes/
+database/
+
+# PHP-related assets and configurations
+cache/
+logs/
+uploads/
+
+# Composer dependencies (if any)
+vendor/
+composer.lock
+composer.phar
+
+# Session files
+sessions/
+
+# Temporary files
+tmp/
+temp/
+
+# Configuration files that might contain sensitive data
+config.php
+config.json
+settings.php
+
+# Database exports/backups
+*.sql
+*.db
+*.sqlite
+
+# Log files
+*.log
+error.log
+access.log
+
 # Logs
 *.log
 
@@ -82,8 +128,8 @@ sandbox/
 TODO.md
 NOTES.md
 
-# Old/deprecated files
-old-CountdownTimer.js
+# PHP files
+*.php
 
 # Local development
 .cache/
