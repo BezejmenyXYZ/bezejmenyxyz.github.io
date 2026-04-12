@@ -96,7 +96,6 @@ temp/
 *.tmp.*
 
 # Server configuration backups
-.htaccess
 .htaccess.bak
 .htaccess.backup
 httpd.conf
@@ -106,7 +105,6 @@ nginx.conf
 config.php
 config.json
 settings.php
-.htaccess-for-online
 
 # Database exports/backups
 *.sql
@@ -175,5 +173,9 @@ DOMAIN-SETUP.md
 .cache/
 *.pid
 
-
+# PowerShell scripts
 .ps1
+
+# Deployment directories
+deploy-github/
+deploy-online/
