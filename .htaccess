@@ -3,22 +3,18 @@
 
 RewriteEngine On
 
-# Redirect PHP-related paths to bezejmeny.online
+# Simplified redirect rules for better GitHub Pages compatibility
 # Admin section redirect
-RewriteCond %{REQUEST_URI} ^/admin(/.*)?$ [NC]
-RewriteRule ^admin(/.*)?$ https://bezejmeny.online/admin$1 [R=301,L]
+RewriteRule ^admin/?(.*)$ https://bezejmeny.online/admin/$1 [R=301,L]
 
 # Register section redirect  
-RewriteCond %{REQUEST_URI} ^/register(/.*)?$ [NC]
-RewriteRule ^register(/.*)?$ https://bezejmeny.online/register$1 [R=301,L]
+RewriteRule ^register/?(.*)$ https://bezejmeny.online/register/$1 [R=301,L]
 
 # Founders section redirect
-RewriteCond %{REQUEST_URI} ^/founders(/.*)?$ [NC] 
-RewriteRule ^founders(/.*)?$ https://bezejmeny.online/founders$1 [R=301,L]
+RewriteRule ^founders/?(.*)$ https://bezejmeny.online/founders/$1 [R=301,L]
 
-# API section redirect (if needed)
-RewriteCond %{REQUEST_URI} ^/api(/.*)?$ [NC]
-RewriteRule ^api(/.*)?$ https://bezejmeny.online/api$1 [R=301,L]
+# API section redirect
+RewriteRule ^api/?(.*)$ https://bezejmeny.online/api/$1 [R=301,L]
 
 # Allow all other content to be served normally from .xyz
 # (static HTML, CSS, JS, images, etc.)
