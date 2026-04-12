@@ -4,6 +4,11 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
+# Deployment directories  
+deploy-github/
+deploy-online/
+deploy-*/
+
 # Ruby/Bundler
 vendor/
 .bundle/
@@ -76,20 +81,53 @@ composer.phar
 
 # Session files
 sessions/
+session_*
+
+# User uploads and media
+uploads/
+media/uploads/
+avatars/
+profile_pics/
+user_content/
 
 # Temporary files
 tmp/
 temp/
+*.tmp.*
+
+# Server configuration backups
+.htaccess
+.htaccess.bak
+.htaccess.backup
+httpd.conf
+nginx.conf
 
 # Configuration files that might contain sensitive data
 config.php
 config.json
 settings.php
+.htaccess-for-online
 
 # Database exports/backups
 *.sql
 *.db
 *.sqlite
+*.dump
+*.backup.sql
+
+# SSL certificates and keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# API keys and secrets
+secrets.txt
+api-keys.txt
+credentials.txt
+*.env.*
+.env*
 
 # Log files
 *.log
@@ -128,6 +166,7 @@ sandbox/
 *-test.*
 TODO.md
 NOTES.md
+DOMAIN-SETUP.md
 
 # PHP files
 *.php
@@ -135,3 +174,6 @@ NOTES.md
 # Local development
 .cache/
 *.pid
+
+
+.ps1
