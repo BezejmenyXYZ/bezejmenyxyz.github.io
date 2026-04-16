@@ -335,10 +335,11 @@ body::-webkit-scrollbar {
   background: rgba(30, 144, 255, 0.02);
   border: 1px solid rgba(30, 144, 255, 0.2);
   border-radius: 15px;
-  padding: 30px;
-  margin: 40px 0;
+  padding: 40px;
+  margin: 40px auto;
   position: relative;
   overflow: hidden;
+  max-width: 1000px;
 }
 
 .CAT::before {
@@ -388,6 +389,92 @@ body::-webkit-scrollbar {
   margin-top: 20px;
 }
 
+/* Closed Beta Section */
+.server-info {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 191, 102, 0.05) 100%);
+  border: 2px solid rgba(0, 255, 136, 0.3);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 25px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.server-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00ff88, #00cc66, #00ff88);
+  animation: serverInfoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes serverInfoGlow {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+.server-info h3 {
+  color: #00ff88;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.server-info p {
+  margin: 12px 0;
+  font-family: 'Courier New', monospace;
+  background: rgba(0, 255, 136, 0.08);
+  padding: 12px 20px;
+  border-radius: 8px;
+  border-left: 4px solid #00ff88;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+.server-info p strong {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.beta-benefits {
+  margin: 25px 0;
+  padding: 20px;
+  background: rgba(0, 255, 136, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+}
+
+.beta-benefits h3 {
+  color: #00ff88;
+  margin-bottom: 15px;
+}
+
+.beta-benefits ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.beta-benefits li {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
+  text-align: left;
+}
+
+.beta-benefits li:before {
+  content: "✦";
+  color: #00ff88;
+  position: absolute;
+  left: 0;
+}
+
 /* Team Section */
 .team-section {
   background: rgba(255, 255, 255, 0.01);
@@ -404,11 +491,21 @@ body::-webkit-scrollbar {
   text-align: center;
 }
 
-.team-grid {
+/* Founders Team - 2x2 Grid */
+#team .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
-  max-width: 500px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Minecraft Staff Team - 3 in a row */
+#mcteam {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
