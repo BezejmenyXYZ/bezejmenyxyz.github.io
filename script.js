@@ -217,33 +217,92 @@ class ParticleSystem {
   }
 }
 
+// Navbar Dropdown Functionality
+class NavbarDropdown {
+  constructor() {
+    this.dropdown = document.querySelector('.navbar-dropdown');
+    this.toggle = document.querySelector('.navbar-dropdown-toggle');
+    this.menu = document.querySelector('.navbar-dropdown-menu');
+    
+    if (this.dropdown && this.toggle && this.menu) {
+      this.init();
+    }
+  }
+
+  init() {
+    // Toggle dropdown on button click
+    this.toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.toggleDropdown();
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!this.dropdown.contains(e.target)) {
+        this.closeDropdown();
+      }
+    });
+
+    // Close dropdown on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.closeDropdown();
+      }
+    });
+  }
+
+  toggleDropdown() {
+    this.dropdown.classList.toggle('active');
+  }
+
+  closeDropdown() {
+    this.dropdown.classList.remove('active');
+  }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
-  new CountdownTimer();
-  new ParticleSystem();
+  // Only initialize CountdownTimer if countdown elements exist
+  if (document.getElementById("countdown")) {
+    new CountdownTimer();
+  }
+  
+  // Only initialize ParticleSystem if background animation container exists
+  if (document.querySelector(".background-animation")) {
+    new ParticleSystem();
+  }
+  
+  // Always initialize NavbarDropdown as it's used on all pages
+  new NavbarDropdown();
 
-  // Add some interactive effects
-  document.querySelectorAll(".time-unit").forEach((unit) => {
-    unit.addEventListener("mouseenter", function () {
-      this.style.boxShadow =
-        "0 0 30px rgba(0, 255, 136, 0.6), inset 0 0 30px rgba(0, 255, 136, 0.2)";
-    });
+  // Add some interactive effects for countdown elements if they exist
+  const timeUnits = document.querySelectorAll(".time-unit");
+  if (timeUnits.length > 0) {
+    timeUnits.forEach((unit) => {
+      unit.addEventListener("mouseenter", function () {
+        this.style.boxShadow =
+          "0 0 30px rgba(0, 255, 136, 0.6), inset 0 0 30px rgba(0, 255, 136, 0.2)";
+      });
 
-    unit.addEventListener("mouseleave", function () {
-      this.style.boxShadow =
-        "0 0 20px rgba(0, 255, 136, 0.3), inset 0 0 20px rgba(0, 255, 136, 0.1)";
+      unit.addEventListener("mouseleave", function () {
+        this.style.boxShadow =
+          "0 0 20px rgba(0, 255, 136, 0.3), inset 0 0 20px rgba(0, 255, 136, 0.1)";
+      });
     });
-  });
+  }
 
-  // Add click effect to features
-  document.querySelectorAll(".feature").forEach((feature) => {
-    feature.addEventListener("click", function () {
-      this.style.animation = "pulse 0.6s ease-in-out";
-      setTimeout(() => {
-        this.style.animation = "";
-      }, 600);
+  // Add click effect to features if they exist
+  const features = document.querySelectorAll(".feature");
+  if (features.length > 0) {
+    features.forEach((feature) => {
+      feature.addEventListener("click", function () {
+        this.style.animation = "pulse 0.6s ease-in-out";
+        setTimeout(() => {
+          this.style.animation = "";
+        }, 600);
+      });
     });
-  });
+  }
 });
 
 // Handle visibility change to pause/resume animations
@@ -269,7 +328,7 @@ document.addEventListener("keydown", function (e) {
   }
 
   // Easter egg: Press 'M' for Minecraft sound effect simulation
-  if (e.key.toLowerCase() === "m") {
+  if (e.key && e.key.toLowerCase() === "m") {
     document.body.style.animation = "shake 0.5s ease-in-out";
     setTimeout(() => {
       document.body.style.animation = "";

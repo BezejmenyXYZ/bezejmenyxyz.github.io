@@ -741,6 +741,77 @@ body::-webkit-scrollbar {
 }
 
 /* Dropdown styles */
+.navbar-dropdown {
+  position: relative;
+}
+
+.navbar-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: 'Orbitron', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cccccc;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.navbar-dropdown-toggle:hover {
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+  transform: translateY(-2px);
+}
+
+.navbar-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  border-radius: 8px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 1000;
+}
+
+.navbar-dropdown.active .navbar-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar-dropdown-item {
+  display: block;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #cccccc;
+  text-decoration: none;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar-dropdown-item:hover {
+  color: #00ff88;
+  background: rgba(0, 255, 136, 0.1);
+  text-decoration: none;
+  padding-left: 25px;
+}
+
+/* Legacy dropdown styles for backwards compatibility */
 .dropdown {
   position: relative;
 }
@@ -821,6 +892,7 @@ body::-webkit-scrollbar {
     text-align: center;
   }
   
+  /* Legacy dropdown mobile styles */
   .dropdown-menu {
     position: static;
     opacity: 1;
@@ -831,6 +903,20 @@ body::-webkit-scrollbar {
   }
   
   .dropdown:hover .dropdown-menu {
+    transform: none;
+  }
+  
+  /* Navbar dropdown mobile styles */
+  .navbar-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-top: 10px;
+    background: rgba(0, 255, 136, 0.05);
+  }
+  
+  .navbar-dropdown.active .navbar-dropdown-menu {
     transform: none;
   }
 

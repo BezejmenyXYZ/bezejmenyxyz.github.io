@@ -7,13 +7,19 @@ class BugReportForm {
         this.filePreview = document.getElementById('filePreview');
         this.submitBtn = document.getElementById('submitBtn');
         this.submitStatus = document.getElementById('submitStatus');
-        this.maxFileSize = 8 * 1024 * 1024; // 10MB
+        this.maxFileSize = 8 * 1024 * 1024; // 8MB
         this.allowedImageTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
         this.allowedVideoTypes = ['video/mp4', 'video/mov', 'video/avi', 'video/quicktime'];
         this.files = [];
         
         // API endpoint for secure bug report submission
         this.apiEndpoint = '/api/submit-bug-report.php';
+        
+        // Check if required elements exist
+        if (!this.form) {
+            console.error('Bug report form not found!');
+            return;
+        }
         
         this.initializeEvents();
         this.setupFileUpload();
@@ -24,6 +30,8 @@ class BugReportForm {
     }
 
     initializeEvents() {
+        if (!this.form) return;
+        
         // Form submission
         this.form.addEventListener('submit', (e) => this.handleSubmit(e));
         
@@ -42,6 +50,8 @@ class BugReportForm {
     }
 
     setupFileUpload() {
+        if (!this.fileInput || !this.fileUploadArea) return;
+        
         // File input change
         this.fileInput.addEventListener('change', (e) => this.handleFiles(e.target.files));
         
@@ -62,7 +72,7 @@ class BugReportForm {
         });
         
         // Click to browse
-        this.fileUploadArea.addEventListener('click', () => {
+        this.fileUploadArea.addEventListener('click', (e) => {
             if (e.target !== this.fileInput) {
                 this.fileInput.click();
             }
@@ -150,6 +160,8 @@ class BugReportForm {
     }
 
     updateFilePreview() {
+        if (!this.filePreview) return;
+        
         this.filePreview.innerHTML = '';
         
         this.files.forEach((file, index) => {
@@ -625,12 +637,12 @@ class BugReportForm {
                 },
                 {
                     name: '🔄 How to Reproduce',
-                    value: data.reproductionSteps || 'Not provided',
+                    value: this.escapeNewlines(data.reproductionSteps) || 'Not provided',
                     inline: false
                 }
             ],
             footer: {
-                text: 'Bezejmeny Bug Report System'
+                text: 'Bezejmeny • BRS | bezejmeny.online/report-a-bug',
             }
         };
         
@@ -638,7 +650,7 @@ class BugReportForm {
         if (data.expectedBehavior) {
             embed.fields.push({
                 name: '✅ Expected Behavior',
-                value: data.expectedBehavior,
+                value: this.escapeNewlines(data.expectedBehavior),
                 inline: false
             });
         }
@@ -646,7 +658,7 @@ class BugReportForm {
         if (data.additionalNotes) {
             embed.fields.push({
                 name: '📝 Additional Notes',
-                value: data.additionalNotes,
+                value: this.escapeNewlines(data.additionalNotes),
                 inline: false
             });
         }
@@ -665,29 +677,27 @@ class BugReportForm {
             inline: true
         });
         
-        if (data.files && data.files.length > 0) {
-            const fileList = data.files.map(file => 
-                `📎 ${file.name} (${this.formatFileSize(file.size)})`
-            ).join('\\n');
-            
-            embed.fields.push({
-                name: '📁 Attached Files',
-                value: fileList,
-                inline: false
-            });
-        }
+        // Prepare form data for multipart upload
+        const formData = new FormData();
         
-        const payload = {
-            embeds: [embed]
-        };
+        // Add the embed as payload_json
+        formData.append('payload_json', JSON.stringify({ embeds: [embed] }));
+        
+        // Add files if any
+        if (this.files && this.files.length > 0) {
+            console.log(`🔧 DEBUG: Uploading ${this.files.length} files:`, this.files.map(f => `${f.name} (${f.size} bytes)`));
+            this.files.forEach((file, index) => {
+                formData.append(`file${index}`, file, file.name);
+                console.log(`🔧 DEBUG: Added file${index}:`, file.name, file.type, file.size);
+            });
+        } else {
+            console.log('🔧 DEBUG: No files to upload');
+        }
         
         // Send to our secure API endpoint
         const response = await fetch(this.apiEndpoint, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
+            body: formData // Don't set Content-Type, browser will handle multipart boundary
         });
         
         if (!response.ok) {
@@ -708,7 +718,7 @@ class BugReportForm {
     }
 
     formatBugDetails(data) {
-        let details = `**Description:** ${data.bugDescription}`;
+        let details = `**Description:** ${this.escapeNewlines(data.bugDescription)}`;
         details += `\\n**Severity:** ${this.formatSeverity(data.bugSeverity)}`;
         if (data.bugCategory) {
             details += `\\n**Category:** ${this.formatCategory(data.bugCategory)}`;
@@ -751,9 +761,18 @@ class BugReportForm {
         return frequencyMap[frequency] || frequency;
     }
 
+    escapeNewlines(text) {
+        if (!text) return text;
+        return text.replace(/\n/g, '\\n');
+    }
+
     setSubmitLoading(loading) {
+        if (!this.submitBtn) return;
+        
         const btnText = this.submitBtn.querySelector('.btn-text');
         const btnLoading = this.submitBtn.querySelector('.btn-loading');
+        
+        if (!btnText || !btnLoading) return;
         
         if (loading) {
             btnText.style.display = 'none';
@@ -767,6 +786,8 @@ class BugReportForm {
     }
 
     showError(message) {
+        if (!this.submitStatus) return;
+        
         this.submitStatus.textContent = message;
         this.submitStatus.className = 'submit-status error';
         this.submitStatus.style.display = 'block';
@@ -774,6 +795,8 @@ class BugReportForm {
     }
 
     showSuccess(message) {
+        if (!this.submitStatus) return;
+        
         this.submitStatus.textContent = message;
         this.submitStatus.className = 'submit-status success';
         this.submitStatus.style.display = 'block';
