@@ -42,7 +42,7 @@
             height: 100%;
             background: linear-gradient(90deg, #00ff88, #00cc66);
             width: 0%;
-            animation: loadingProgress 7s ease-in-out forwards;
+            animation: loadingProgress 17s ease-in-out forwards;
         }
         
         @keyframes loadingProgress {
@@ -57,17 +57,18 @@
             <div class="redirect-message">
                 <h1>🔍 Page Not Found</h1>
                 <p>This page doesn't exist...</p>
-                <p>Redirecting you back to main page!</p>
+                <p>Try check it under bezejmeny.online or check the URL for errors.</p>
+                <p>Redirecting you back to main page, try using the navigation menu!</p>
                 <div class="loading-bar">
                     <div class="loading-progress"></div>
                 </div>
-                <p id="countdown-text">Redirecting in 7 seconds...</p>
+                <p id="countdown-text">Redirecting in 17 seconds...</p>
             </div>
         </div>
     </div>
 
     <script>
-        let seconds = 7;
+        let seconds = 17;
         const countdownText = document.getElementById('countdown-text');
         
         const countdown = setInterval(() => {
@@ -81,10 +82,10 @@
             }
         }, 1000);
         
-        // Immediate redirect after 7 seconds
+        // Immediate redirect after 17 seconds
         setTimeout(() => {
             window.location.href = '/';
-        }, 7000);
+        }, 17000);
     </script>
 </body>
 </html>

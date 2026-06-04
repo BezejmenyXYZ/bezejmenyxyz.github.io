@@ -188,7 +188,7 @@ class ParticleSystem {
     // Continuously add new particles
     setInterval(() => {
       this.addParticle();
-    }, 3000);
+    }, 2500);
   }
 
   addParticle() {
