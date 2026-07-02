@@ -20,9 +20,9 @@ class CountdownTimer {
     this.refreshInterval = null;
     this.refreshSeconds = 100;
 
-    // Set target date: July 1, 2026 at 12:00 CET/CEST (automatically handled)
+    // Set target date: August 1, 2026 at 13:00 CET/CEST (automatically handled)
     // Note: year, month (1-12), day, hour (24h), minute
-    this.setTargetDate(2026, 7, 1, 12, 0);
+    this.setTargetDate(2026, 8, 1, 13, 0);
 
     this.init();
   }
