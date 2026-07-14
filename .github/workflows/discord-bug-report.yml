@@ -6,7 +6,7 @@ on:
 
 jobs:
   notify-discord:
-    if: contains(join(github.event.issue.labels.*.name, ','), 'from-web')
+    if: contains(join(github.event.issue.labels.*.name, ','), 'bug') || contains(github.event.issue.body || '', 'Submitted via website report form')
     runs-on: ubuntu-latest
 
     steps:
