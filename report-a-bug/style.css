@@ -1,0 +1,105 @@
+/* Report a Bug page specific styles */
+
+.bug-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.bug-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  background: linear-gradient(45deg, #00ff88, #00cc66, #009944);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bug-subtitle {
+  color: #cccccc;
+  margin-top: 10px;
+}
+
+.bug-panel {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 24px;
+}
+
+.field-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.field-row label {
+  margin-bottom: 8px;
+  color: #eaeaea;
+  font-weight: 700;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field-row input,
+.field-row select,
+.field-row textarea {
+  font-family: "Orbitron", monospace;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 255, 136, 0.25);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.field-row textarea {
+  resize: vertical;
+}
+
+.notice {
+  margin: 12px 0 16px;
+  padding: 12px;
+  border: 1px solid rgba(0, 191, 255, 0.4);
+  background: rgba(0, 191, 255, 0.08);
+  border-radius: 10px;
+  color: #ccecff;
+  font-size: 0.9rem;
+}
+
+.submit-btn {
+  width: 100%;
+  border: 1px solid rgba(0, 255, 136, 0.45);
+  background: linear-gradient(45deg, #00ff88, #00cc66);
+  color: #052311;
+  font-family: "Orbitron", monospace;
+  font-weight: 900;
+  border-radius: 10px;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  filter: brightness(1.05);
+}
+
+.submit-hint {
+  margin-top: 10px;
+  color: #aaaaaa;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bug-title {
+    font-size: 2.4rem;
+  }
+}

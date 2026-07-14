@@ -13,12 +13,13 @@
     
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="tos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
-<body>
+<body data-page="tos">
     <div class="container">
         <div class="background-animation">
             <div class="particle"></div>
@@ -29,29 +30,11 @@
         </div>
 
         <div class="content">
-            <!-- Navigation Bar -->
-            <nav class="navbar">
-                <div class="navbar-container">
-                    <a href="../" class="navbar-brand">🎮 Bezejmeny</a>
-                    <div class="navbar-menu">
-                        <a href="../" class="navbar-item">HOME</a>
-                        <a href="../about/" class="navbar-item">ABOUT US</a>
-                        <a href="#" class="navbar-item active">TOS</a>
-                        <div class="navbar-dropdown">
-                            <button class="navbar-item navbar-dropdown-toggle">MORE ▼</button>
-                            <div class="navbar-dropdown-menu">
-                                <a href="https://bezejmeny.online/register" class="navbar-dropdown-item">REGISTER</a>
-                                <a href="https://bezejmeny.online/report-a-bug/" class="navbar-dropdown-item">REPORT
-                                    BUG</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
+            <div id="shared-navbar"></div>
 
             <!-- Header -->
             <div class="page-header">
-                <h1 class="page-title">🎮 Bezejmeny Server Rules</h1>
+                <h1 class="page-title">🎮 Terms of Service</h1>
                 <p class="page-subtitle">Guidelines for the best gaming experience</p>
             </div>
 
@@ -123,15 +106,10 @@
             </div>
         </div>
 
-        <footer class="footer">
-            <p>© 2026 Bezejmeny. All rights reserved.</p>
-            <p>
-                <a href="mailto:hello@bezejmeny.xyz">EMAIL US</a>
-            </p>
-            <p>Created by <a href="https://maleka.dev/" target="_blank" rel="noopener noreferrer">Maleka DEV</a></p>
-        </footer>
+        <div id="shared-footer"></div>
     </div>
 
+    <script src="../shared-layout.js"></script>
     <script src="../script.js"></script>
     <script src="tos.js"></script>
 </body>

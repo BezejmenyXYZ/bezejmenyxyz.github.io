@@ -1,0 +1,56 @@
+name: Discord Bug Report Notification
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  notify-discord:
+    if: contains(join(github.event.issue.labels.*.name, ','), 'from-web')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send issue to Discord webhook
+        uses: actions/github-script@v7
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        with:
+          script: |
+            const webhook = process.env.DISCORD_WEBHOOK_URL;
+            if (!webhook) {
+              core.setFailed('Missing repository secret: DISCORD_WEBHOOK_URL');
+              return;
+            }
+
+            const issue = context.payload.issue;
+            const labels = (issue.labels || []).map(l => l.name).join(', ') || 'none';
+            const body = (issue.body || 'No details provided').slice(0, 3800);
+
+            const payload = {
+              username: 'Bezejmeny Bug Bot',
+              embeds: [
+                {
+                  title: `🐛 ${issue.title}`,
+                  url: issue.html_url,
+                  description: body,
+                  color: 16733525,
+                  fields: [
+                    { name: 'Issue #', value: `#${issue.number}`, inline: true },
+                    { name: 'Author', value: issue.user?.login || 'unknown', inline: true },
+                    { name: 'Labels', value: labels, inline: false }
+                  ],
+                  timestamp: new Date().toISOString()
+                }
+              ]
+            };
+
+            const response = await fetch(webhook, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            });
+
+            if (!response.ok) {
+              const txt = await response.text();
+              core.setFailed(`Discord webhook failed: ${response.status} ${txt}`);
+            }

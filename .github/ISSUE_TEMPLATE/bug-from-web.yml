@@ -1,0 +1,17 @@
+name: Bug Report (From Website)
+description: Website-submitted bug report
+title: "[Bug]: "
+labels: ["bug", "from-web"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue was opened from the public bug report form.
+  - type: textarea
+    id: details
+    attributes:
+      label: Bug report details
+      description: Keep this section unchanged if already prefilled by the website.
+      placeholder: Details will be prefilled by website form
+    validations:
+      required: true

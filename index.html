@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
-<body>
+<body data-page="home">
     <div class="container">
         <div class="background-animation">
             <div class="particle"></div>
@@ -27,28 +27,40 @@
             <div class="particle"></div>
         </div>
 
-        <div class="content">
-            <!-- Navigation Bar -->
+        <template id="shared-navbar-template">
             <nav class="navbar">
                 <div class="navbar-container">
-                    <a href="#" class="navbar-brand">🎮 Bezejmeny</a>
+                    <a href="/" class="navbar-brand">🎮 Bezejmeny</a>
                     <div class="navbar-menu">
-                        <a href="#" class="navbar-item active">HOME</a>
-                        <a href="about/" class="navbar-item">ABOUT US</a>
-                        <a href="tos/" class="navbar-item">TOS</a>
+                        <a href="/" class="navbar-item" data-nav="home">HOME</a>
+                        <a href="/about/" class="navbar-item" data-nav="about">ABOUT US</a>
+                        <a href="/tos/" class="navbar-item" data-nav="tos">TOS</a>
                         <div class="navbar-dropdown">
                             <button class="navbar-item navbar-dropdown-toggle">MORE ▼</button>
                             <div class="navbar-dropdown-menu">
-                                <a href="https://bezejmeny.online/report-a-bug/" class="navbar-dropdown-item">REPORT
-                                    BUG</a>
+                                <a href="/report-a-bug/" class="navbar-dropdown-item">REPORT BUG</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </nav>
+        </template>
+
+        <template id="shared-footer-template">
+            <footer class="footer">
+                <p>© 2026 Bezejmeny. All rights reserved.</p>
+                <p>
+                    <a href="mailto:hello@bezejmeny.xyz">EMAIL US</a>
+                </p>
+                <p>Created by <a href="https://maleka.dev/" target="_blank" rel="noopener noreferrer">Maleka DEV</a></p>
+            </footer>
+        </template>
+
+        <div class="content">
+            <div id="shared-navbar"></div>
 
             <div class="logo-section">
-                <h1 class="title">🎮 Community Hub</h1>
+                <h1 class="title">🎮 Bezejmeny</br>Community Hub</h1>
                 <p class="subtitle">Epic Minecraft server</p>
             </div>
 
@@ -97,7 +109,7 @@
                     </div>
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="media/636210705632067586.png" alt="VerciQ" class="avatar-img">
+                            <img src="media/636210705632067586.png" alt="VerciQ" class="avatar-img avatar-img-zoom-verciq-main">
                         </div>
                         <h3 class="member-name">VerciQ</h3>
                         <p class="member-title">Co-founder</p>
@@ -218,17 +230,10 @@
                     </div>
                 </div>
 
-                <footer class="footer">
-                    <p>© 2026 Bezejmeny. All rights reserved.</p>
-                    <p>
-                        <a href="mailto:hello@bezejmeny.xyz">EMAIL US</a>
-                    </p>
-                    <p>Created by <a href="https://maleka.dev/" target="_blank" rel="noopener noreferrer">Maleka
-                            DEV</a>
-                    </p>
-                </footer>
+                <div id="shared-footer"></div>
             </div>
 
+            <script src="shared-layout.js"></script>
             <script src="script.js"></script>
 </body>
 

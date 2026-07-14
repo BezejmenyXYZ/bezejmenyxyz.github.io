@@ -260,6 +260,25 @@ class NavbarDropdown {
   }
 }
 
+let navbarDropdownInitialized = false;
+
+function initializeNavbarDropdown() {
+  if (navbarDropdownInitialized) {
+    return;
+  }
+
+  const dropdown = document.querySelector('.navbar-dropdown');
+  const toggle = document.querySelector('.navbar-dropdown-toggle');
+  const menu = document.querySelector('.navbar-dropdown-menu');
+
+  if (!dropdown || !toggle || !menu) {
+    return;
+  }
+
+  new NavbarDropdown();
+  navbarDropdownInitialized = true;
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   // Only initialize CountdownTimer if countdown elements exist
@@ -272,8 +291,8 @@ document.addEventListener("DOMContentLoaded", function () {
     new ParticleSystem();
   }
   
-  // Always initialize NavbarDropdown as it's used on all pages
-  new NavbarDropdown();
+  // Initialize dropdown when navbar is present.
+  initializeNavbarDropdown();
 
   // Add some interactive effects for countdown elements if they exist
   const timeUnits = document.querySelectorAll(".time-unit");
@@ -303,6 +322,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+});
+
+// Re-try dropdown setup after shared layout fragments are injected.
+document.addEventListener("shared-layout:ready", function () {
+  initializeNavbarDropdown();
 });
 
 // Handle visibility change to pause/resume animations

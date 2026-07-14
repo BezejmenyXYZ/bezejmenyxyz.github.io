@@ -545,6 +545,11 @@ body::-webkit-scrollbar {
   border-radius: 50%;
 }
 
+.avatar-img-zoom-verciq-main {
+  transform: scale(1.35);
+  transform-origin: center;
+}
+
 .member-name {
   font-size: 1.2rem;
   color: #00ff88;

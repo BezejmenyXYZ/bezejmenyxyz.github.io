@@ -15,45 +15,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <!-- Background Effects -->
-    <div class="bg-wrapper">
-        <div class="floating-orb"></div>
-        <div class="floating-orb"></div>
-        <div class="floating-orb"></div>
-        <div class="floating-orb"></div>
-        <div class="floating-orb"></div>
-    </div>
+<body data-page="about">
+    <div class="container">
+        <div class="background-animation">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
 
-    <!-- Main Page Wrapper -->
-    <div class="page-wrapper">
-        <!-- Navigation -->
-        <nav class="top-navigation">
-            <div class="nav-container">
-                <a href="../" class="brand-logo">🎮 Bezejmeny</a>
-                <div class="nav-links">
-                    <a href="../" class="nav-link">HOME</a>
-                    <a href="../tos/" class="nav-link">TOS</a>
-                    <a href="#" class="nav-link active-page">ABOUT US</a>
-                    <div class="nav-dropdown">
-                        <button class="dropdown-trigger">MORE ▼</button>
-                        <div class="dropdown-panel">
-                            <a href="https://bezejmeny.online/register" class="dropdown-link">REGISTER</a>
-                            <a href="https://bezejmeny.online/report-a-bug/" class="dropdown-link">REPORT BUG</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <div class="content">
+            <div id="shared-navbar"></div>
 
         <!-- Main Content -->
         <main class="main-content">
             <!-- Hero Section -->
             <section class="hero-section">
-                <h1 class="hero-title">📖 About Bezejmeny</h1>
+                <h1 class="hero-title">📖 About us</h1>
                 <p class="hero-subtitle">Building the ultimate Minecraft community experience</p>
             </section>
 
@@ -67,12 +50,9 @@
                         <h3 class="info-header">🏗️ Rationale:</h3>
                         <p><strong>Designed specifically for:</strong>
                         <div class="community-tags">
-                            <span class="community-tag"><a href="https://bezejmeny.xyz/r/NoNameSquad/"
-                                    style="text-decoration: none; color: black;">NoName Squad</a></span>
-                            <span class="community-tag"><a href="https://bezejmeny.xyz/r/QTY/"
-                                    style="text-decoration: none; color: black;">QTY</a></span>
-                            <span class="community-tag"><a href="https://bezejmeny.xyz/r/Transcord/"
-                                    style="text-decoration: none; color: black;">Trans*Cord</a></span>
+                                <span class="community-tag"><a href="https://bezejmeny.xyz/r/NoNameSquad/">NoName Squad</a></span>
+                                <span class="community-tag"><a href="https://bezejmeny.xyz/r/QTY/">QTY</a></span>
+                                <span class="community-tag"><a href="https://bezejmeny.xyz/r/Transcord/">Trans*Cord</a></span>
                             <span class="community-tag">All adventurers who want to join us!</span>
                         </div>
                         </p>
@@ -109,7 +89,7 @@
                         <h3 class="info-header">📊 Development Timeline:</h3>
                         <p><strong>Investment:</strong> <span class="highlight-text">More than $100 Personal Funds, and
                                 counting</span></p>
-                        <p><strong>Status:</strong> Alpha Testing → <b>Closed Beta (now!)</b> → Open Beta → Public
+                        <p><strong>Status:</strong> Alpha Testing → Closed Beta → <b>Open Beta (now!)</b> → Public
                             Launch</p>
                         <p><strong>Mission:</strong> Sustainable Community-Driven Platform</p>
                     </div>
@@ -146,18 +126,19 @@
                 <div class="story-content">
                     <div class="info-panel">
                         <h3 class="info-header">📈 Financial Commitment:</h3>
-                        <p><strong>Policy:</strong> <span class="highlight-text">100% Reinvestment into Project
-                                Excellence</span></p>
+                        <p><strong>Policy:</strong> <span class="highlight-text">Reinvest income until the server is
+                            self-sustaining</span></p>
                         <p><strong>Reporting:</strong> Regular Comprehensive Financial Updates</p>
                         <p><strong>Access:</strong> Open Development Process Visibility</p>
                     </div>
 
                     <p>We believe transparency isn't just a buzzword – it's a fundamental pillar of trust and community
                         building. Every registration fee, every generous donation, every supporter contribution gets
-                        strategically reinvested directly into making Bezejmeny the absolute best it can be.
-                        <strong>First, we cover our operational costs; then we invest in development, fund exciting
-                            prizes and community events; and any remaining resources go toward fair compensation for our
-                            dedicated work</strong> – every contribution helps build something extraordinary for our
+                        strategically used to make Bezejmeny stronger and more stable.
+                        <strong>Our current priority is simple: cover operating costs and reinvest into infrastructure,
+                            development, and community events until the project can reliably pay for itself. After that,
+                            we may gradually recover part of the founders' own investment and allow modest tips for the
+                            time we dedicate</strong> – with that process communicated openly to our
                         community.
                     </p>
                 </div>
@@ -192,7 +173,7 @@
 
                     <div class="founder-card">
                         <div class="founder-avatar">
-                            <img src="../media/636210705632067586.png" alt="VerciQ">
+                            <img src="../media/636210705632067586.png" alt="VerciQ" class="founder-img-zoom-verciq">
                         </div>
                         <h3 class="founder-name">VerciQ</h3>
                         <p class="founder-role">Co-founder</p>
@@ -251,50 +232,17 @@
                     there's an exciting place for you in the Bezejmeny family.</p>
 
                 <div class="cta-buttons">
-                    <a href="https://bezejmeny.online/register" class="cta-button">🎮 REGISTER NOW</a>
-                    <a href="https://bezejmeny.online/report-a-bug/" class="cta-button secondary">🐛 HELP US
-                        IMPROVE</a>
+                    <a href="mailto:hello@bezejmeny.xyz" class="cta-button">✉️ CONTACT US</a>
+                    <a href="../" class="cta-button secondary">🏠 BACK TO HOME</a>
                 </div>
             </section>
         </main>
 
-        <!-- Footer -->
-        <footer class="page-footer">
-            <p class="footer-text">© 2026 Bezejmeny. All rights reserved.</p>
-            <p class="footer-text">
-                <a href="mailto:hello@bezejmeny.xyz" class="footer-link">EMAIL US</a>
-            </p>
-            <p class="footer-text">Created by <a href="https://maleka.dev/" target="_blank" rel="noopener noreferrer"
-                    class="footer-link">Maleka DEV</a></p>
-        </footer>
+            <div id="shared-footer"></div>
+        </div>
     </div>
 
-    <!-- JavaScript for Dropdown -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const dropdown = document.querySelector('.nav-dropdown');
-            const trigger = document.querySelector('.dropdown-trigger');
-
-            if (dropdown && trigger) {
-                trigger.addEventListener('click', function (e) {
-                    e.stopPropagation();
-                    dropdown.classList.toggle('open');
-                });
-
-                document.addEventListener('click', function (e) {
-                    if (!dropdown.contains(e.target)) {
-                        dropdown.classList.remove('open');
-                    }
-                });
-
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape') {
-                        dropdown.classList.remove('open');
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="../shared-layout.js"></script>
     <script src="../script.js"></script>
 </body>
 

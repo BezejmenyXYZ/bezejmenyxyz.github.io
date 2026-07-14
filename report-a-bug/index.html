@@ -1,52 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting - Bezejmeny Bug Report</title>
-    
-    <!-- Instant redirect -->
-    <meta http-equiv="refresh" content="0; url=index.php">
-    
-    <!-- Favicon -->
+    <title>Bezejmeny • Report a Bug</title>
+
     <link rel="icon" type="image/png" sizes="32x32" href="../media/our_logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../media/our_logo.png">
     <link rel="apple-touch-icon" href="../media/our_logo.png">
-    
-    <style>
-        body {
-            font-family: 'Orbitron', monospace;
-            background: #000;
-            color: #00ff88;
-            text-align: center;
-            padding: 50px;
-            margin: 0;
-        }
-        .redirect-message {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        .redirect-link {
-            color: #00ff88;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .redirect-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
-<body>
-    <div class="redirect-message">
-        🐛 Redirecting to Bug Report Form...
-        <br><br>
-        If you're not redirected automatically, 
-        <a href="index.php" class="redirect-link">click here</a>
+
+<body data-page="report-bug" data-github-repo="Sayo/bezejmeny.xyz">
+    <div class="container">
+        <div class="background-animation">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="content">
+            <div id="shared-navbar"></div>
+
+            <section class="bug-header">
+                <h1 class="bug-title">🐛 Report a Bug</h1>
+                <p class="bug-subtitle">Your report becomes a GitHub issue and is sent to our staff on Discord via GitHub Actions.</p>
+            </section>
+
+            <section class="bug-panel">
+                <form id="bug-form" novalidate>
+                    <div class="field-row">
+                        <label for="minecraftNick">Minecraft Username *</label>
+                        <input id="minecraftNick" name="minecraftNick" type="text" maxlength="16" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="discordId">Discord User ID *</label>
+                        <input id="discordId" name="discordId" type="text" inputmode="numeric" placeholder="1122986498250264647" required>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="bugTitle">Bug Title *</label>
+                        <input id="bugTitle" name="bugTitle" type="text" maxlength="120" required>
+                    </div>
+
+                    <div class="field-grid">
+                        <div class="field-row">
+                            <label for="severity">Severity *</label>
+                            <select id="severity" name="severity" required>
+                                <option value="">Select severity</option>
+                                <option value="Low">Low</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                                <option value="Critical">Critical</option>
+                            </select>
+                        </div>
+                        <div class="field-row">
+                            <label for="category">Category</label>
+                            <select id="category" name="category">
+                                <option value="General">General</option>
+                                <option value="Gameplay">Gameplay</option>
+                                <option value="Economy">Economy</option>
+                                <option value="Chat">Chat</option>
+                                <option value="Performance">Performance</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="description">What happened? *</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="steps">How to reproduce? *</label>
+                        <textarea id="steps" name="steps" rows="4" required></textarea>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="expected">What did you expect to happen?</label>
+                        <textarea id="expected" name="expected" rows="3"></textarea>
+                    </div>
+
+                    <div class="field-grid">
+                        <div class="field-row">
+                            <label for="firstSeen">First occurrence</label>
+                            <input id="firstSeen" name="firstSeen" type="datetime-local">
+                        </div>
+                        <div class="field-row">
+                            <label for="frequency">Frequency</label>
+                            <select id="frequency" name="frequency">
+                                <option value="Unknown">Unknown</option>
+                                <option value="Once">Once</option>
+                                <option value="Sometimes">Sometimes</option>
+                                <option value="Often">Often</option>
+                                <option value="Always">Always</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field-row">
+                        <label for="notes">Additional notes</label>
+                        <textarea id="notes" name="notes" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Create GitHub Bug Issue</button>
+                    <p id="submit-hint" class="submit-hint"></p>
+                </form>
+            </section>
+
+            <div id="shared-footer"></div>
+        </div>
     </div>
 
-    <script>
-        // JavaScript fallback redirect
-        window.location.href = 'index.php';
-    </script>
+    <script src="../shared-layout.js"></script>
+    <script src="../script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
