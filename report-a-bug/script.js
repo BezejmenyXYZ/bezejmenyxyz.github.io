@@ -39,7 +39,7 @@
 
   function getRepoSlug() {
     var repo = document.body.getAttribute("data-github-repo") || "";
-    return sanitize(repo) || "Sayo/bezejmeny.xyz";
+    return sanitize(repo) || "BezejmenyXYZ/bezejmenyxyz.github.io";
   }
 
   function openIssue(data) {
@@ -48,7 +48,7 @@
       template: "bug-from-web.yml",
       labels: "bug,from-web",
       title: "[Bug] " + data.bugTitle,
-      body: buildIssueBody(data),
+      details: buildIssueBody(data),
     });
 
     var issueUrl = "https://github.com/" + repoSlug + "/issues/new?" + params.toString();
