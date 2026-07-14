@@ -27,7 +27,9 @@ jobs:
             const body = (issue.body || 'No details provided').slice(0, 3800);
 
             const payload = {
-              username: 'Bezejmeny Bug Bot',
+              username: 'Bug Reporter',
+              content: '<@448894048586170369><@692026308049240074>',
+              tts: false,
               embeds: [
                 {
                   title: `🐛 ${issue.title}`,
