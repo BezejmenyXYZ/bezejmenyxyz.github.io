@@ -21,7 +21,7 @@
       '<footer class="footer">' +
       '<p>© 2026 Bezejmeny. All rights reserved.</p>' +
       '<p><a href="mailto:hello@bezejmeny.xyz">EMAIL US</a></p>' +
-      '<p>Created by <a href="https://maleka.dev/" target="_blank" rel="noopener noreferrer">Maleka DEV</a></p>' +
+      '<p>Created by <a href="https://sayouri.dev/" target="_blank" rel="noopener noreferrer">Sayouri</a></p>' +
       '</footer>',
   };
 
