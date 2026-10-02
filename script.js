@@ -20,9 +20,9 @@ class CountdownTimer {
     this.refreshInterval = null;
     this.refreshSeconds = 100;
 
-    // Set target date: September 1, 2026 at 13:00 CET/CEST (automatically handled)
+    // Set target date: February 17, 2027 at 23:59 CET
     // Note: year, month (1-12), day, hour (24h), minute
-    this.setTargetDate(2026, 9, 1, 13, 0);
+    this.setTargetDate(2027, 2, 17, 23, 59);
 
     this.init();
   }
@@ -118,7 +118,7 @@ class CountdownTimer {
       
       // Get the formatted date without timezone name
       const formattedDate = formatter.format(this.targetDate)
-        .replace(/,\s*2026/, ', 2026');
+        .replace(/,\s*2027/, ', 2027');
       
       // Determine if DST is active for the target date to show CET or CEST
       const isDST = this.isDSTActive(this.targetDate);

@@ -353,6 +353,28 @@ body::-webkit-scrollbar {
   border-radius: 15px 15px 0 0;
 }
 
+.WH {
+  background: rgba(30, 144, 255, 0.02);
+  border: 1px solid rgba(30, 144, 255, 0.2);
+  border-radius: 15px;
+  padding: 40px;
+  margin: 40px auto;
+  position: relative;
+  overflow: hidden;
+  max-width: 1000px;
+}
+
+.WH::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #9e6bff, #00bfff);
+  border-radius: 15px 15px 0 0;
+}
+
 .alpha-title {
   font-size: 1.8rem;
   color: #1e90ff;
